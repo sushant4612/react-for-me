@@ -6,6 +6,9 @@
 ## How React Created ?
 Before react there was backbone.js and jQuery
 - to solve phantom message problem
+- No consistency in UI
+- No sync between js and DOM
+
 
 ## React is a library
    (framework vs library)
