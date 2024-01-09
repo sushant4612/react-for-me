@@ -10,4 +10,4 @@ Vite is a bundler or can be called as build tool for making project and manging 
 `npm create vite@latest`
 
 ## Components
-Components are the building blocks that allow you to create reusable and modular UI elements. Components can be thought of as custom, self-contained pieces of code that define how a part of the user interface should appear and behave.
+Components are the building blocks that allow you to create reusable and modular UI elements. Components can be thought of as custom, self-contained pieces of code that define how a part of the user interface should appear and behave. 
