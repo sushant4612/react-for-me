@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef } from "react";
+import { useCallback, useState, useRef, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -9,11 +9,27 @@ function App() {
 
   //useRef hook
   const passwordRef = useRef(null);
+  const passwordGenrator = useCallback(() => {
+    let pass = "";
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    if (numberAllowed) str += "0123456789";
+    if (charAllowed) str += "!@#$%^&*-_+=[]{}~`";
+
+    for(let i = 0; i < length; i++){
+      let char = Math.floor(Math.random() * str.length + 1);
+      pass += str.charAt(char);
+    }
+    setPassword(pass);
+  },[length,numberAllowed,charAllowed,setPassword])
 
   const copyPasswordToClipboard = useCallback(() => {
     passwordRef.current?.select();
     window.navigator.clipboard.writeText(password);
   }, [password]);
+
+  useEffect( () => {
+    passwordGenrator();
+  },[length,numberAllowed,charAllowed,passwordGenrator])
 
   return (
     <>
