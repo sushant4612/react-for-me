@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { useLoaderData } from 'react-router-dom';
+import React from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 function Github() {
-    const data = useLoaderData()
-    // const [data,setData] = useState({})
-    // useEffect(()=>{
-    //     fetch('https://api.github.com/users/sushant4612')
-    //     .then( (res) => res.json())
-    //     .then( (data) => {
-    //         setData(data);
-    //     })
-    // },[])
-
+    const data = useLoaderData();
   return (
-    <>
-        <h1 className=' text-gray-700 text-center font-bold p-7 '>Github followers: {data.followers}</h1>
-        <img src={data.avatar_url} alt="" />
-    </>
+    <div>Github : {data.followers}</div>
   )
 }
 
+export default Github
 
-export default Github;
-
-export const githubInfoLoader = async () => {
-    const response = await fetch('https://api.github.com/users/sushant4612');
-    return response.json();
-} 
-
+export const githubData = async () => {
+    const res = await fetch('https://api.github.com/users/sushant4612');
+    return res.json();
+}

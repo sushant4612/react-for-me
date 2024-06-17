@@ -1,15 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import App from './App'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import Layout from './components/Layout.jsx'
-import Home from './components/Home/Home.jsx'
-import About from './components/About/About.jsx'
-import Contact from './components/Contact/Contact.jsx'
-import User from './components/User/User.jsx'
-import Github, { githubInfoLoader } from './components/Github/Github.jsx'
-
-
+import Layout from './Layout'
+import Home from './components/Home/Home'
+import About from './components/About/About'
+import Contact from './components/Contact/Contact'
+import User from './components/User/User'
+import Github, { githubData } from './components/Github/Github'
 
 // const router = createBrowserRouter([
 //   {
@@ -17,16 +16,16 @@ import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 //     element: <Layout/>,
 //     children: [
 //       {
-//         path: "",
-//         element: <Home />
+//         path: '',
+//         element: <Home/>
 //       },
 //       {
-//         path: "about",
-//         element: <About />
+//         path: 'about',
+//         element: <About/>
 //       },
 //       {
-//         path: "contact",
-//         element: <Contact />
+//         path: 'contact',
+//         element: <Contact/>
 //       }
 //     ]
 //   }
@@ -35,11 +34,11 @@ import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
-      <Route path='' element={<Home/>}/>
-      <Route path='about' element={<About/>}/>
-      <Route path='contact' element={<Contact/>}/>
-      <Route path='user/:userId' element={<User/>}/>
-      <Route loader={githubInfoLoader} path='github' element={<Github/>}/>
+    <Route path='' element={<Home/>}/>
+    <Route path='about' element= {<About/>}/>
+    <Route path='contact' element= {<Contact/>}/>
+    <Route path='user/:userid' element= {<User/>}/>
+    <Route loader={githubData} path='github' element= {<Github/>}/>
     </Route>
   )
 )
